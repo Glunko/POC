@@ -7,13 +7,10 @@ Vulnerability description: The system has a SQL injection vulnerability, and att
 
 The cause of the vulnerability: The vulnerability occurs on line 165 of classes\actions.class.php. The input from the user has not been filtered, resulting in the execution of malicious SQL statements
 ![](https://cdn.jsdelivr.net/gh/G1uneko/picture_blog@main/img/202312111608669.jpg)
-
 Vulnerability verification: After setting up the system, access the local port 80
 ![](https://cdn.jsdelivr.net/gh/G1uneko/picture_blog@main/img/202312111609232.png)
-
 At the attendance function, capture and save the traffic package for attendance
 ![](https://cdn.jsdelivr.net/gh/G1uneko/picture_blog@main/img/202312111609233.png)
-
 Pass the payload in the student_id[] parameter:
 ```php
 83'and(select*from(select+sleep(3))a/**/union/**/select+1)='
